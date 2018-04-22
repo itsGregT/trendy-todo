@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import AddTask from './components/AddTask';
+import AddTaskForm from './components/AddTaskForm';
 import Task from './components/Task';
 
 class App extends Component {
   state = {
-    task: {}
+    tasks:{}
+  };
+
+  addTask = task => {
+    const tasks = {...this.state.tasks};
+    tasks[`task${Date.now()}`] = task;
+    this.setState({
+      tasks: tasks
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <AddTask />
-        <Task title="Eat food" desc="Cook and eat some food"/>
+        <AddTaskForm addTask={this.addTask} />
+        <Task />
       </div>
     );
   }

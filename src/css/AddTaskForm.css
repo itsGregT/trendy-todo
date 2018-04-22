@@ -1,0 +1,4 @@
+.addTaskForm input,
+.addTaskForm textarea {
+	display: block;
+}
