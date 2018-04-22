@@ -8,10 +8,11 @@ class AddTaskForm extends React.Component {
 	createTask = (e) => {
 		e.preventDefault();
 		const task = {
-			title: this.titleRef.value.value,
-			desc: this.descRef.value.value
+			title: this.titleRef.current.value,
+			desc: this.descRef.current.value
 		}
 		this.props.addTask(task);
+		e.currentTarget.reset();
 	}
 
 	render() {
