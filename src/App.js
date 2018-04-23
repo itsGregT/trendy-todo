@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
-import Task from './components/Task';
+import TaskList from './components/TaskList';
 
 class App extends Component {
   state = {
@@ -14,6 +14,7 @@ class App extends Component {
     this.setState({
       tasks: tasks
     })
+    console.log(tasks);
   }
 
   render() {
@@ -21,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
-        <Task />
+        <TaskList />
       </div>
     );
   }
