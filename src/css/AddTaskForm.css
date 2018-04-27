@@ -3,8 +3,16 @@
 	display: block;
 	width: 300px;
 	margin: 10px 0;
+	border: none;
+	border-radius: 2px;
+	font-size: 1.125em;
 }
 
-textarea {
+.add-task-form input {
+	height: 25px;
+}
+
+.add-task-form textarea {
 	resize: none;
+	height: 100px;
 }

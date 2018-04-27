@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
-        <ul>
+        <ul class="task-list">
           {Object.keys(this.state.tasks).map(key =>  
             <Task key={key} details={this.state.tasks[key]}/>
           )}
