@@ -17,8 +17,7 @@ class AddTaskForm extends React.Component {
 	}
 
 	clearForm = e => {
-		e.preventDefault();
-		e.currentTarget.reset();
+		console.log(e);
 	}
 
 	render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
 import Task from './components/Task';
-import './css/global.css';
+import './css/main.css';
 
 class App extends Component {
   state = {
@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
-        <ul class="task-list">
+        <ul className="task-list">
           {Object.keys(this.state.tasks).map(key =>  
             <Task key={key} details={this.state.tasks[key]}/>
           )}
