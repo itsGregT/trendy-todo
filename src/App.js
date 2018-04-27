@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
 import Task from './components/Task';
+import './css/global.css';
 
 class App extends Component {
   state = {

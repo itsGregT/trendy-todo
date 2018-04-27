@@ -1,3 +1,20 @@
+:root {
+	--border-color: green;
+}
+
 .task {
-	background-color: #aaa;
+	background-color: #dfdfdf;
+	width: 300px;
+	padding: 15px;
+	border-radius: 3px;
+}
+
+.task h3 {
+	border-bottom: 2px solid var(--border-color);
+}
+
+.task h3,
+.task p {
+	margin: 0;
+	padding: 0;
 }
