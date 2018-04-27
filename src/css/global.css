@@ -6,5 +6,7 @@
 
 body {
 	font-family: sans-serif;
-	background-color: green;
+	background-color: #ccc;
+	margin: 0;
+	padding: 0;
 }
