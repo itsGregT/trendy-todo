@@ -1,4 +1,10 @@
-.addTaskForm input,
-.addTaskForm textarea {
+.add-task-form input,
+.add-task-form textarea {
 	display: block;
+	width: 300px;
+	margin: 10px 0;
+}
+
+textarea {
+	resize: none;
 }

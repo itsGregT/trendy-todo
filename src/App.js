@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
-import TaskList from './components/TaskList';
 
 class App extends Component {
   state = {
-    tasks:{}
-  };
+    tasks: {}
+  }
 
   addTask = task => {
+    //make copy of current state
     const tasks = {...this.state.tasks};
+    //add new task
     tasks[`task${Date.now()}`] = task;
-    this.setState({
-      tasks: tasks
-    })
-    console.log(tasks);
+    this.setState({ tasks })
   }
 
   render() {
@@ -22,7 +20,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
-        <TaskList />
       </div>
     );
   }
