@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
+import Task from './components/Task';
 
 class App extends Component {
   state = {
@@ -20,6 +21,11 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
+        <ul>
+          {Object.keys(this.state.tasks).map(key =>  
+            <Task key={key} details={this.state.tasks[key]}/>
+          )}
+        </ul>
       </div>
     );
   }
