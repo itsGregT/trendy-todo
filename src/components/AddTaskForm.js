@@ -16,12 +16,18 @@ class AddTaskForm extends React.Component {
 		e.currentTarget.reset();
 	}
 
+	clearForm = e => {
+		e.preventDefault();
+		e.currentTarget.reset();
+	}
+
 	render() {
 		return (
 			<form className="add-task-form" onSubmit={this.createTask}>
 				<input ref={this.titleRef} type="text"/>
 				<textarea ref={this.descRef}></textarea>
-				<button type="submit">Submit</button>
+				<button className="submit-button" type="submit">Add Task</button>
+				<button className="cancel-button" onClick={this.clearForm}>Cancel</button>
 			</form>
 		)
 	}
