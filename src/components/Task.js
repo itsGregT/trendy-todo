@@ -6,8 +6,13 @@ class Task extends React.Component {
 		const {title, desc} = this.props.details;
 		return (
 			<div className="task">
-				<h3>{title}</h3>
-				<p>{desc}</p>
+				<div className="task-header">
+					<h3>{title}</h3>
+					<span className="delete-task">X</span>
+				</div>
+				<div className="task-content">
+					<p>{desc}</p>
+				</div>
 			</div>
 		)
 	}
