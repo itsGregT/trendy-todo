@@ -13,6 +13,12 @@ class Task extends React.Component {
 				<div className="task-content">
 					<p>{desc}</p>
 				</div>
+				<div className="task-toggle">
+					<input id="toggle-todo" className="toggle toggle-left" type="radio"/>
+					<label for="toggle-todo" class="btn">To-Do</label>
+					<input id="toggle-complete" className="toggle toggle-right" type="radio"/>
+					<label for="toggle-complete" class="btn">Complete</label>
+				</div>
 			</div>
 		)
 	}
