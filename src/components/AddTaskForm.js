@@ -22,7 +22,7 @@ class AddTaskForm extends React.Component {
 
 	render() {
 		return (
-			<form className="add-task-form" onSubmit={this.createTask}>
+			<form className="add-task-form bg-section-wrapper" onSubmit={this.createTask}>
 				<input ref={this.titleRef} type="text" placeholder="Title" />
 				<textarea ref={this.descRef} placeholder="Task Description..."></textarea>
 				<button className="submit-button" type="submit">Add Task</button>

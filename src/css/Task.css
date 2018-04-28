@@ -2,10 +2,10 @@
 .task {
 	background-color: #dfdfdf;
 	width: 300px;
-	padding: 15px;
+	padding: 10px;
 	border-radius: 3px;
 	box-shadow: 0px 0px 5px #000;
-	margin: 5px;
+	margin: 15px;
 	position: relative;
 }
 
@@ -31,8 +31,43 @@
 
 /***************Toggle***************/
 .task-toggle {
-	margin-top: 5px;
-	padding-top: 5px;
-	border-top: 1px solid #333;
 	text-align: center;
+	font-size: 0.75em;
+	font-weight: bold;
+}
+
+input[type="radio"] {
+	display: none;
+	vertical-align: middle;
+}
+
+input[type="radio"]:checked + .toggle-left {
+	box-shadow: -100px 0px #333 inset;
+	color: #f0f0f0;
+}
+
+input[type="radio"]:checked + .toggle-right {
+	box-shadow: 100px 0px #333 inset;
+	color: #f0f0f0;
+}
+
+.toggle {
+	cursor: pointer;
+	padding: 5px;
+	border: 2px solid #333;
+	border-radius: 3px;
+	transition: all 0.25s linear;
+	line-height: 3px;
+	width: 80px;
+	height: 15px;
+	display: inline-block;
+	text-align: center;
+}
+
+.toggle-right {
+	margin-left: -5px;
+}
+
+.toggle-left {
+	border-right: none;
 }

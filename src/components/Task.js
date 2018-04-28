@@ -14,10 +14,10 @@ class Task extends React.Component {
 					<p>{desc}</p>
 				</div>
 				<div className="task-toggle">
-					<input id="toggle-todo" className="toggle toggle-left" type="radio"/>
-					<label for="toggle-todo" class="btn">To-Do</label>
-					<input id="toggle-complete" className="toggle toggle-right" type="radio"/>
-					<label for="toggle-complete" class="btn">Complete</label>
+					<input id="active" type="radio" name={this.props.index} checked readonly/>
+					<label htmlFor="active" className="toggle toggle-left">To-Do</label>
+					<input id="inactive" type="radio" name={this.props.index} />
+					<label htmlFor="inactive" className="toggle toggle-right">Complete</label>
 				</div>
 			</div>
 		)
