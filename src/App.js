@@ -16,11 +16,10 @@ class App extends Component {
     this.setState({ tasks })
   }
 
-  deleteTask = index => {
+  deleteTask = (key) => {
     const tasks = {...this.state.tasks};   
-
-    console.log(Object.keys(tasks));
-    console.log(index);
+    tasks[key] = null;
+    this.setState({ tasks });
   }
 
   render() {
