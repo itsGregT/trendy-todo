@@ -21,29 +21,50 @@ class App extends Component {
     tasks.splice(key, 1);
     this.setState({tasksList:tasks});
   }
-*
-/
-  moveToCompleteTasks = (key) => {
-    const tasks = this.state.tasksList.slice();
-    const completeTasks = this.state.completeTasksList.slice();
-    tasks.splice(key, 1);
-    completeTasks.push();
 
-  }*/
+  moveToCompleteTasks = (key) => {
+    const tasksList = this.state.tasksList.slice();
+    const completetasksList = this.state.completetasksList.slice();
+    console.log(tasksList[key]);
+    completetasksList.push(tasksList[key]);
+    tasksList.splice(key, 1);
+    this.setState({completetasksList: completetasksList, tasksList: tasksList});
+  }
 
   render() {
+    const taskList = this.state.tasksList;
+    const completetaskList = this.state.completetasksList;
+
     return (
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} />
         <div className="task-list">
-          {this.state.tasks.map((task, key) =>  
-            <Task key={key} details={task} deleteTask={this.deleteTask} index={key}/>
+          {taskList.map((task, key) =>  
+            <Task 
+              key={key} 
+              details={task} 
+              completeTask={this.moveToCompleteTasks} 
+              deleteTask={this.deleteTask} 
+              index={key}
+            />
+          )}
+        </div>
+        <div className="task-list-complete">
+          {completetaskList.map((task, key) =>  
+            <Task 
+              key={key} 
+              details={task} 
+              completeTask={this.moveToCompleteTasks} 
+              deleteTask={this.deleteTask} 
+              index={key}
+            />
           )}
         </div>
       </div>
     );
   }
 }
+
 
 export default App;

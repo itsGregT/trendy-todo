@@ -10,6 +10,7 @@ class Task extends React.Component {
 				<div className="task-header">
 					<h3>{title}</h3>
 					<span className="delete-task" onClick={() => this.props.deleteTask(this.props.index)}>X</span>
+					<span className="delete-task" onClick={() => this.props.completeTask(this.props.index)}>AAA</span>
 				</div>
 				<div className="task-content">
 					<p>{desc}</p>
