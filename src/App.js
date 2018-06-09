@@ -6,21 +6,30 @@ import './css/main.css';
 
 class App extends Component {
   state = {
-    tasks: {}
+    tasksList: [],
+    completetasksList: []
   }
 
-  addTask = task => {
-    const tasks = {...this.state.tasks};
-    //add new task
-    tasks[`task${Date.now()}`] = task;
-    this.setState({ tasks })
+  addTask = (task) => {
+    const tasks = this.state.tasksList.slice();
+    tasks.push(task);
+    this.setState({tasksList:tasks});
   }
 
   deleteTask = (key) => {
-    const tasks = {...this.state.tasks};   
-    tasks[key] = null;
-    this.setState({ tasks });
+    const tasks = this.state.tasksList.slice();
+    tasks.splice(key, 1);
+    this.setState({tasksList:tasks});
   }
+*
+/
+  moveToCompleteTasks = (key) => {
+    const tasks = this.state.tasksList.slice();
+    const completeTasks = this.state.completeTasksList.slice();
+    tasks.splice(key, 1);
+    completeTasks.push();
+
+  }*/
 
   render() {
     return (
@@ -28,8 +37,8 @@ class App extends Component {
         <Header />
         <AddTaskForm addTask={this.addTask} />
         <div className="task-list">
-          {Object.keys(this.state.tasks).map(key =>  
-            <Task key={key} details={this.state.tasks[key]} deleteTask={this.deleteTask} index={key}/>
+          {this.state.tasks.map((task, key) =>  
+            <Task key={key} details={task} deleteTask={this.deleteTask} index={key}/>
           )}
         </div>
       </div>

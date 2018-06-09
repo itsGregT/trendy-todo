@@ -3,6 +3,7 @@ import '../css/Task.css';
 
 class Task extends React.Component {
 	render() {
+		console.log(this.props)
 		const {title, desc} = this.props.details; 
 		return (
 			<div className="task">
