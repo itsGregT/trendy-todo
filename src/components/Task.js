@@ -3,24 +3,18 @@ import '../css/Task.css';
 
 class Task extends React.Component {
 	render() {
-		console.log(this.props)
 		const {title, desc} = this.props.details; 
 		return (
 			<div className="task">
 				<div className="task-header">
 					<h3>{title}</h3>
 					<span className="delete-task" onClick={() => this.props.deleteTask(this.props.index)}>X</span>
-					<span className="delete-task" onClick={() => this.props.completeTask(this.props.index)}>AAA</span>
 				</div>
 				<div className="task-content">
 					<p>{desc}</p>
 				</div>
-				<div className="task-toggle">
-					<input id="active" type="radio" name={this.props.index} checked readOnly/>
-					<label htmlFor="active" className="toggle toggle-left">To-Do</label>
-					<input id="inactive" type="radio" name={this.props.index} />
-					<label htmlFor="inactive" className="toggle toggle-right">Complete</label>
-				</div>
+				<button id="complete-btn" onClick={() => this.props.moveToCompleteTasks(this.props.index)}>Complete</button>
+				<button id="incomplete-btn" onClick={() => this.props.moveToToDoTasks(this.props.index)}>Incomplete</button>
 			</div>
 		)
 	}

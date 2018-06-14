@@ -12,7 +12,7 @@
 .task h3,
 .task p {
 	margin: 0;
-	padding: 3px 0;
+	padding: 8px 0;
 }
 
 /***************Sections***************/
@@ -29,7 +29,14 @@
 	color: #DB2929;
 }
 
-/***************Toggle***************/
+.task-list #incomplete-btn {
+	display: none;
+}
+
+.task-list-complete #complete-btn {
+	display: none;
+}
+/***************Toggle**************
 .task-toggle {
 	text-align: center;
 	font-size: 0.75em;
@@ -70,4 +77,4 @@ input[type="radio"]:checked + .toggle-right {
 
 .toggle-left {
 	border-right: none;
-}
+}*/
