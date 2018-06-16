@@ -29,13 +29,6 @@
 	color: #DB2929;
 }
 
-.task-list #incomplete-btn {
-	display: none;
-}
-
-.task-list-complete #complete-btn {
-	display: none;
-}
 /***************Toggle**************
 .task-toggle {
 	text-align: center;

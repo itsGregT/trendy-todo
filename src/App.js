@@ -5,9 +5,14 @@ import Task from './components/Task';
 import './css/main.css';
 
 class App extends Component {
-  state = {
-    tasksList: [],
-    completeTasksList: []
+  constructor() {
+    super();
+    this.state = {
+      tasksList: [],
+      completeTasksList: []
+    }
+
+    //this.addTask = this.addTask.bind(this); - i can do this
   }
 
   addTask = (task) => {
@@ -20,11 +25,16 @@ class App extends Component {
     document.getElementsByClassName("add-task-form").reset();
   }
 
-  deleteTask = (key) => {
-    const tasks = this.state.tasksList.slice();
-    tasks.splice(key, 1);
-    this.setState({tasksList:tasks});
-    console.log('deleted');
+  deleteTaskFromTodo = (key) => {
+    const tasksList = this.state.tasksList.slice();
+    tasksList.splice(key, 1);
+    this.setState({tasksList:tasksList});
+  }
+
+  deleteTaskFromComplete = (key) => {
+    const completeTasksList = this.state.completeTasksList.slice();
+    completeTasksList.splice(key, 1);
+    this.setState({completeTasksList:completeTasksList});
   }
 
   moveToCompleteTasks = (key, e) => {
@@ -59,7 +69,8 @@ class App extends Component {
               key={key} 
               details={task} 
               moveToCompleteTasks={this.moveToCompleteTasks} 
-              deleteTask={this.deleteTask} 
+              status="todo"
+              deleteTaskFromTodo={this.deleteTaskFromTodo.bind(this, key)} 
               index={key}
             />
           )}
@@ -70,7 +81,8 @@ class App extends Component {
               key={key} 
               details={task} 
               moveToToDoTasks={this.moveToToDoTasks} 
-              deleteTask={this.deleteTask} 
+              status="complete"
+              deleteTaskFromComplete={this.deleteTaskFromComplete.bind(this, key)} 
               index={key}
             />
           )}

@@ -1,23 +1,27 @@
 import React from 'react';
 import '../css/Task.css';
 
-class Task extends React.Component {
-	render() {
-		const {title, desc} = this.props.details; 
-		return (
-			<div className="task">
-				<div className="task-header">
-					<h3>{title}</h3>
-					<span className="delete-task" onClick={() => this.props.deleteTask(this.props.index)}>X</span>
-				</div>
-				<div className="task-content">
-					<p>{desc}</p>
-				</div>
-				<button id="complete-btn" onClick={() => this.props.moveToCompleteTasks(this.props.index)}>Complete</button>
-				<button id="incomplete-btn" onClick={() => this.props.moveToToDoTasks(this.props.index)}>Incomplete</button>
+const Task  = (props) => {
+	const {title, desc} = props.details; 
+	const {status} = props;
+	return (
+		<div className="task">
+			<div className="task-header">
+				<h3>{title}</h3>
+					<span className="delete-task" onClick={status === "todo" ? props.deleteTaskFromTodo :  props.deleteTaskFromComplete}>X</span>
 			</div>
-		)
-	}
+			<div className="task-content">
+				<p>{desc}</p>
+			</div>
+			<div className="status-btns">
+				{status === 'todo' ? (
+					<button id="complete-btn" onClick={() => props.moveToCompleteTasks(props.index)}>Complete</button>
+				) : (
+					<button id="incomplete-btn" onClick={() => props.moveToToDoTasks(props.index)}>Incomplete</button>
+				)}
+			</div>
+		</div>
+	)
 }
 
 export default Task;
