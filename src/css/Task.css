@@ -5,8 +5,19 @@
 	padding: 10px;
 	border-radius: 3px;
 	box-shadow: 0px 0px 5px #000;
-	margin: 15px;
+	margin: 0 auto 15px;
 	position: relative;
+}
+
+.tasks-list {
+	min-width: 325px;
+}
+
+.tasks-list h2 {
+	font-size: 1em;
+	margin: 0;
+	color: #fff;
+	padding: 10px;
 }
 
 .task h3,
@@ -28,46 +39,3 @@
 	cursor: pointer;
 	color: #DB2929;
 }
-
-/***************Toggle**************
-.task-toggle {
-	text-align: center;
-	font-size: 0.75em;
-	font-weight: bold;
-}
-
-input[type="radio"] {
-	display: none;
-	vertical-align: middle;
-}
-
-input[type="radio"]:checked + .toggle-left {
-	box-shadow: -100px 0px #333 inset;
-	color: #f0f0f0;
-}
-
-input[type="radio"]:checked + .toggle-right {
-	box-shadow: 100px 0px #333 inset;
-	color: #f0f0f0;
-}
-
-.toggle {
-	cursor: pointer;
-	padding: 5px;
-	border: 2px solid #333;
-	border-radius: 3px;
-	transition: all 0.25s linear;
-	line-height: 3px;
-	width: 80px;
-	height: 15px;
-	display: inline-block;
-	text-align: center;
-}
-
-.toggle-right {
-	margin-left: -5px;
-}
-
-.toggle-left {
-	border-right: none;
-}*/

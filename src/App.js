@@ -43,7 +43,6 @@ class App extends Component {
     completeTasksList.push(tasksList[key]);
     tasksList.splice(key, 1);
     this.setState({completeTasksList: completeTasksList, tasksList: tasksList});
-    console.log("move to complete");
   }
 
   moveToToDoTasks = (key) => {
@@ -63,7 +62,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <AddTaskForm addTask={this.addTask} clearForm={this.clearForm}/>
-        <div className="task-list">
+        <div className="task-list tasks-list">
+          <h2>To Do</h2>
           {taskList.map((task, key) =>  
             <Task 
               key={key} 
@@ -75,7 +75,8 @@ class App extends Component {
             />
           )}
         </div>
-        <div className="task-list-complete">
+        <div className="task-list-complete tasks-list">
+          <h2>Complete</h2>
           {completeTaskList.map((task, key) =>  
             <Task 
               key={key} 
