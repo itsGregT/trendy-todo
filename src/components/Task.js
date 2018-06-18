@@ -1,4 +1,5 @@
 import React from 'react';
+import close from '../img/close-icon.png';
 import '../css/Task.css';
 
 const Task  = (props) => {
@@ -8,7 +9,7 @@ const Task  = (props) => {
 		<div className="task">
 			<div className="task-header">
 				<h3>{title}</h3>
-					<span className="delete-task" onClick={status === "todo" ? props.deleteTaskFromTodo :  props.deleteTaskFromComplete}>X</span>
+					<span className="delete-task" onClick={status === "todo" ? props.deleteTaskFromTodo :  props.deleteTaskFromComplete}><img class="delete-task" src={close} /></span>
 			</div>
 			<div className="task-content">
 				<p>{desc}</p>
