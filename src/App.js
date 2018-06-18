@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
 import Task from './components/Task';
+import EditIcon from './img/edit-icon.png';
 import './css/main.css';
 
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
         <AddTaskForm addTask={this.addTask} />
         <div className="task-list tasks-list">
           <h2>To Do</h2>
+          <img className="edit-icon" src={EditIcon} alt=""/>
           {taskList.map((task, key) =>  
             <Task 
               key={key} 
@@ -71,6 +73,7 @@ class App extends Component {
         </div>
         <div className="task-list-complete tasks-list">
           <h2>Complete</h2>
+          <img className="edit-icon" src={EditIcon} alt=""/>
           {completeTaskList.map((task, key) =>  
             <Task 
               key={key} 

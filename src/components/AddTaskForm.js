@@ -7,8 +7,7 @@ class AddTaskForm extends React.Component {
 
 	clearForm = (e) => {
 		e.preventDefault();
-		document.getElementsByClassName("add-task-form").reset();
-		console.log('submitting form')
+		document.querySelector(".add-task-form").reset();
 	}
 
 	createTask = e => {
