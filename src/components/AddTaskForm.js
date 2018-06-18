@@ -5,6 +5,12 @@ class AddTaskForm extends React.Component {
 	titleRef = React.createRef();
 	descRef = React.createRef();
 
+	clearForm = (e) => {
+		e.preventDefault();
+		document.getElementsByClassName("add-task-form").reset();
+		console.log('submitting form')
+	}
+
 	createTask = e => {
 		e.preventDefault();
 		const task = {
@@ -14,10 +20,6 @@ class AddTaskForm extends React.Component {
 
 		this.props.addTask(task);
 		e.currentTarget.reset();
-	}
-
-	clearForm = e => {
-		console.log(e);
 	}
 
 	render() {

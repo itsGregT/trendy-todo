@@ -9,7 +9,7 @@ class SettingsBtn extends React.Component {
 
 	render() {
 		return (
-			<img src={settings} class="settings-btn" onClick={this.changeBackground} />
+			<img src={settings} className="settings-btn" onClick={this.changeBackground} />
 		)
 	}
 }

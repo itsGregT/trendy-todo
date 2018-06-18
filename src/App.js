@@ -11,18 +11,12 @@ class App extends Component {
       tasksList: [],
       completeTasksList: []
     }
-
-    //this.addTask = this.addTask.bind(this); - i can do this
   }
 
   addTask = (task) => {
     const tasks = this.state.tasksList.slice();
     tasks.push(task);
     this.setState({tasksList:tasks});
-  }
-
-  clearForm = () => {
-    document.getElementsByClassName("add-task-form").reset();
   }
 
   deleteTaskFromTodo = (key) => {
@@ -61,7 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <AddTaskForm addTask={this.addTask} clearForm={this.clearForm}/>
+        <AddTaskForm addTask={this.addTask} />
         <div className="task-list tasks-list">
           <h2>To Do</h2>
           {taskList.map((task, key) =>  
