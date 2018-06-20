@@ -18,6 +18,7 @@ class AddTaskForm extends React.Component {
 		}
 
 		this.props.addTask(task);
+		
 		e.currentTarget.reset();
 	}
 

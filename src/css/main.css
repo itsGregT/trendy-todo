@@ -4,25 +4,36 @@
   box-sizing: border-box;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	font-family: sans-serif;
-	background: #565656;
+	background: url('../img/office-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	padding: 0;
 	margin: 0;
 	color: #333;
+	height: 100%;
 }
 
 ul {
 	margin: 0;
 }
 
-.task-list,
-.task-list-complete  {
+.tasks-list-wrapper {
+	padding: 0 50px;
+}
+
+.tasks-list {
 	display: inline-block;
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.75);
 	border-radius: 3px;
 	vertical-align: top;
-	margin: 0 50px;
+	margin: 0 10px;
 }
 
 .task-list .task:hover {
