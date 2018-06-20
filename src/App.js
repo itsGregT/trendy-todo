@@ -9,14 +9,42 @@ class App extends Component {
     super();
     this.state = {
       tasksList: [],
-      completeTasksList: []
+      doingTasksList: [],
+      completeTasksList: [],
+      addTaskFormToDoDisplay: false,
+      addTaskFormDoingDisplay: false,
+      addTaskFormCompleteDisplay: false
     }
   }
 
   addTask = (task) => {
     const tasks = this.state.tasksList.slice();
     tasks.push(task);
-    this.setState({tasksList:tasks});
+    this.setState({
+      tasksList:tasks,
+      addTaskFormToDoDisplay: false
+    });
+  }
+
+  addTaskToDoing = (task) => {
+    const tasks = this.state.doingTasksList.slice();
+    tasks.push(task);
+    this.setState({
+      doingTasksList:tasks,
+      addTaskFormDoingDisplay: false,
+    });
+  }
+
+  addTaskFormToToDoList = () => {
+    this.setState({addTaskFormToDoDisplay: true});
+  }
+
+  addTaskFormToDoingList = () => {
+    this.setState({addTaskFormDoingDisplay: true});
+  }
+
+  addTaskFormToCompleteList = () => {
+    this.setState({addTaskFormCompleteDisplay: true});
   }
 
   deleteTaskFromTodo = (key) => {
@@ -31,59 +59,90 @@ class App extends Component {
     this.setState({completeTasksList:completeTasksList});
   }
 
-  moveToCompleteTasks = (key, e) => {
-    const tasksList = this.state.tasksList.slice();
-    const completeTasksList = this.state.completeTasksList.slice();
-    completeTasksList.push(tasksList[key]);
-    tasksList.splice(key, 1);
-    this.setState({completeTasksList: completeTasksList, tasksList: tasksList});
+  deleteTaskFromDoing = (key) => {
+    const doingTasksList = this.state.doingTasksList.slice();
+    doingTasksList.splice(key, 1);
+    this.setState({doingTasksList:doingTasksList});
   }
 
-  moveToToDoTasks = (key) => {
-    const tasksList = this.state.tasksList.slice();
+  deleteTaskFromComplete = (key) => {
     const completeTasksList = this.state.completeTasksList.slice();
-    tasksList.push(completeTasksList[key]);
     completeTasksList.splice(key, 1);
-    this.setState({completeTasksList: completeTasksList, tasksList: tasksList})
-    console.log("move to to do");
+    this.setState({completeTasksList:completeTasksList});
   }
+
+  // moveToCompleteTasks = (key, e) => {
+  //   const tasksList = this.state.tasksList.slice();
+  //   const completeTasksList = this.state.completeTasksList.slice();
+  //   completeTasksList.push(tasksList[key]);
+  //   tasksList.splice(key, 1);
+  //   this.setState({completeTasksList: completeTasksList, tasksList: tasksList});
+  // }
+
+  // moveToToDoTasks = (key) => {
+  //   const tasksList = this.state.tasksList.slice();
+  //   const completeTasksList = this.state.completeTasksList.slice();
+  //   tasksList.push(completeTasksList[key]);
+  //   completeTasksList.splice(key, 1);
+  //   this.setState({completeTasksList: completeTasksList, tasksList: tasksList})
+  // }
 
   render() {
     const taskList = this.state.tasksList;
     const completeTaskList = this.state.completeTasksList;
+    const  {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
 
     return (
       <div className="App">
         <Header />
-        <AddTaskForm addTask={this.addTask} />
-        <div className="task-list tasks-list">
-          <h2>To Do</h2>
-          <span class="add-task-icon">+</span>
-          {taskList.map((task, key) =>  
-            <Task 
-              key={key} 
-              details={task} 
-              moveToCompleteTasks={this.moveToCompleteTasks} 
-              status="todo"
-              deleteTaskFromTodo={this.deleteTaskFromTodo.bind(this, key)} 
-              index={key}
-            />
-          )}
-        </div>
-        <div className="task-list-complete tasks-list">
-          <h2>Complete</h2>
-          {completeTaskList.map((task, key) =>  
-            <Task 
-              key={key} 
-              details={task} 
-              moveToToDoTasks={this.moveToToDoTasks} 
-              status="complete"
-              deleteTaskFromComplete={this.deleteTaskFromComplete.bind(this, key)} 
-              index={key}
-            />
-          )}
-        </div>
+        <div className="tasks-list-wrapper">
+          <div className="task-list-todo tasks-list">
+            <h2>To Do</h2>
+            <span className="add-task-icon" onClick={this.addTaskFormToToDoList}>+</span>
+            {taskList.map((task, key) =>  
+              <Task 
+                key={key} 
+                details={task} 
+                moveToCompleteTasks={this.moveToCompleteTasks} 
+                status="todo"
+                deleteTaskFromTodo={this.deleteTaskFromTodo.bind(this, key)} 
+                index={key}
+              />
+            )}
 
+            {addTaskFormToDoDisplay === true && (<AddTaskForm addTask={this.addTask} />)}
+          </div>
+          <div className="task-list-doing tasks-list">
+            <h2>Doing</h2>
+            <span className="add-task-icon" onClick={this.addTaskFormToDoingList}>+</span>
+            {completeTaskList.map((task, key) =>  
+              <Task 
+                key={key} 
+                details={task} 
+                moveToToDoTasks={this.moveToToDoTasks} 
+                status="doing"
+                deleteTaskFromDoing={this.deleteTaskFromDoing.bind(this, key)} 
+                index={key}
+              />
+            )}
+            {addTaskFormDoingDisplay === true && (<AddTaskForm addTask={this.addTaskToDoing} />)}
+          </div>
+          <div className="task-list-complete tasks-list">
+            <h2>Complete</h2>
+            <span className="add-task-icon" onClick={this.addTaskFormToCompleteList}>+</span>
+            {completeTaskList.map((task, key) =>  
+              <Task 
+                key={key} 
+                details={task} 
+                moveToToDoTasks={this.moveToToDoTasks} 
+                status="complete"
+                deleteTaskFromComplete={this.deleteTaskFromComplete.bind(this, key)} 
+                index={key}
+              />
+            )}
+            {addTaskFormCompleteDisplay === true && (<AddTaskForm addTask={this.addTask} />)}
+          </div>
+        </div>
       </div>
     );
   }
