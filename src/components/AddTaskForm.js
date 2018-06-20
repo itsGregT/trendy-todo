@@ -17,7 +17,13 @@ class AddTaskForm extends React.Component {
 			desc: this.descRef.current.value
 		}
 
-		this.props.addTask(task);
+		if(this.props.status === "todo") {
+			this.props.addTaskToToDo(task);
+		} else if (this.props.status === "doing") {
+			this.props.addTaskToDoing(task);
+		} else {
+			this.props.addTaskToComplete(task);
+		}
 		
 		e.currentTarget.reset();
 	}

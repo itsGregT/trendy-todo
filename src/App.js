@@ -17,7 +17,7 @@ class App extends Component {
     }
   }
 
-  addTask = (task) => {
+  addTaskToToDo = (task) => {
     const tasks = this.state.tasksList.slice();
     tasks.push(task);
     this.setState({
@@ -32,6 +32,15 @@ class App extends Component {
     this.setState({
       doingTasksList:tasks,
       addTaskFormDoingDisplay: false,
+    });
+  }
+
+  addTaskToComplete = (task) => {
+    const tasks = this.state.completeTasksList.slice();
+    tasks.push(task);
+    this.setState({
+      completeTasksList:tasks,
+      addTaskFormCompleteDisplay: false,
     });
   }
 
@@ -89,6 +98,7 @@ class App extends Component {
 
   render() {
     const taskList = this.state.tasksList;
+    const doingTaskList = this.state.doingTasksList;
     const completeTaskList = this.state.completeTasksList;
     const  {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
 
@@ -110,12 +120,12 @@ class App extends Component {
               />
             )}
 
-            {addTaskFormToDoDisplay === true && (<AddTaskForm addTask={this.addTask} />)}
+            {addTaskFormToDoDisplay === true && (<AddTaskForm addTaskToToDo={this.addTaskToToDo} status="todo" />)}
           </div>
           <div className="task-list-doing tasks-list">
             <h2>Doing</h2>
             <span className="add-task-icon" onClick={this.addTaskFormToDoingList}>+</span>
-            {completeTaskList.map((task, key) =>  
+            {doingTaskList.map((task, key) =>  
               <Task 
                 key={key} 
                 details={task} 
@@ -125,7 +135,7 @@ class App extends Component {
                 index={key}
               />
             )}
-            {addTaskFormDoingDisplay === true && (<AddTaskForm addTask={this.addTaskToDoing} />)}
+            {addTaskFormDoingDisplay === true && (<AddTaskForm addTaskToDoing={this.addTaskToDoing} status="doing" />)}
           </div>
           <div className="task-list-complete tasks-list">
             <h2>Complete</h2>
@@ -140,7 +150,7 @@ class App extends Component {
                 index={key}
               />
             )}
-            {addTaskFormCompleteDisplay === true && (<AddTaskForm addTask={this.addTask} />)}
+            {addTaskFormCompleteDisplay === true && (<AddTaskForm addTaskToComplete={this.addTaskToComplete} status="complete" />)}
           </div>
         </div>
       </div>
