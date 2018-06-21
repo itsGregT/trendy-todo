@@ -29,11 +29,23 @@
 	cursor: pointer;
 }
 
-.task-button {
-	border: none;
-	color: white;
-	padding: 5px 10px;
-	border-radius: 3px;
-	font-weight: bold;
+.movement-arrows {
+	position: relative;
+	height: 25px;
+}
+
+.movement-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	max-width: 24px;
 	cursor: pointer;
+}
+
+.movement-arrows .right-arrow {
+	right: 5px;
+}
+
+.movement-arrows .left-arrow {
+	left: 5px;
 }

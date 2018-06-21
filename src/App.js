@@ -81,7 +81,7 @@ class App extends Component {
   }
 
   // moveToCompleteTasks = (key, e) => {
-  //   const tasksList = this.state.tasksList.slice();
+  //   const DtasksList = this.state.tasksList.slice();
   //   const completeTasksList = this.state.completeTasksList.slice();
   //   completeTasksList.push(tasksList[key]);
   //   tasksList.splice(key, 1);

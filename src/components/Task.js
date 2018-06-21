@@ -1,5 +1,7 @@
 import React from 'react';
 import close from '../img/close-icon.png';
+import leftArrow from '../img/left-arrow.png';
+import rightArrow from '../img/right-arrow.png';
 import '../css/Task.css';
 
 const Task  = (props) => {
@@ -18,9 +20,18 @@ const Task  = (props) => {
 			</div>
 			<div className="status-btns">
 				{status === 'todo' ? (
-					<button className="submit-button task-button" onClick={() => props.moveToCompleteTasks(props.index)}>Complete</button>
+					<div className="movement-arrows">
+						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+					</div>
+				) : status === 'doing' ? (
+					<div className="movement-arrows">
+						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+					</div>
 				) : (
-					<button className="cancel-button task-button" onClick={() => props.moveToToDoTasks(props.index)}>Incomplete</button>
+					<div className="movement-arrows">
+						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+					</div>
 				)}
 			</div>
 		</div>
