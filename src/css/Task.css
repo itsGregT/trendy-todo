@@ -38,7 +38,7 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	max-width: 24px;
+	max-width: 22px;
 	cursor: pointer;
 }
 
@@ -48,4 +48,6 @@
 
 .movement-arrows .left-arrow {
 	left: 5px;
+	transform: scaleX(-1);
+	transform-origin: center  ;
 }

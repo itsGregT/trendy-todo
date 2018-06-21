@@ -80,21 +80,49 @@ class App extends Component {
     this.setState({completeTasksList:completeTasksList});
   }
 
-  // moveToCompleteTasks = (key, e) => {
-  //   const DtasksList = this.state.tasksList.slice();
-  //   const completeTasksList = this.state.completeTasksList.slice();
-  //   completeTasksList.push(tasksList[key]);
-  //   tasksList.splice(key, 1);
-  //   this.setState({completeTasksList: completeTasksList, tasksList: tasksList});
-  // }
+  moveFromToDoToDoing = (key) => {
+    const toDoList = this.state.tasksList.slice();
+    const doingList = this.state.doingTasksList.slice();
+    doingList.push(toDoList[key]);
+    toDoList.splice(key, 1);
+    this.setState({
+      tasksList: toDoList,
+      doingTasksList: doingList
+    })
+  }
 
-  // moveToToDoTasks = (key) => {
-  //   const tasksList = this.state.tasksList.slice();
-  //   const completeTasksList = this.state.completeTasksList.slice();
-  //   tasksList.push(completeTasksList[key]);
-  //   completeTasksList.splice(key, 1);
-  //   this.setState({completeTasksList: completeTasksList, tasksList: tasksList})
-  // }
+  moveFromDoingToComplete = (key) => {
+    const doingList = this.state.doingTasksList.slice();
+    const completeList = this.state.completeTasksList.slice();
+    completeList.push(doingList[key]);
+    doingList.splice(key, 1);
+    this.setState({
+      doingTasksList: doingList,
+      completeTasksList: completeList
+    })
+  }
+
+  moveFromDoingToToDo = (key) => {
+    const doingList = this.state.doingTasksList.slice();
+    const toDoList = this.state.tasksList.slice();
+    toDoList.push(doingList[key]);
+    doingList.splice(key, 1);
+    this.setState({
+      doingTasksList: doingList,
+      tasksList: toDoList
+    })
+  }
+
+  moveFromCompleteToDoing = (key) => {
+    const completeList = this.state.completeTasksList.slice();
+    const doingList = this.state.doingTasksList.slice();
+    doingList.push(completeList[key]);
+    completeList.splice(key, 1);
+    this.setState({
+      completeTasksList: completeList,
+      doingTasksList: doingList
+    })
+  }
 
   render() {
     const taskList = this.state.tasksList;
@@ -113,7 +141,7 @@ class App extends Component {
               <Task 
                 key={key} 
                 details={task} 
-                moveToCompleteTasks={this.moveToCompleteTasks} 
+                moveFromToDoToDoing={this.moveFromToDoToDoing} 
                 status="todo"
                 deleteTaskFromTodo={this.deleteTaskFromTodo.bind(this, key)} 
                 index={key}
@@ -129,7 +157,8 @@ class App extends Component {
               <Task 
                 key={key} 
                 details={task} 
-                moveToToDoTasks={this.moveToToDoTasks} 
+                moveFromDoingToComplete={this.moveFromDoingToComplete}  
+                moveFromDoingToToDo={this.moveFromDoingToToDo}
                 status="doing"
                 deleteTaskFromDoing={this.deleteTaskFromDoing.bind(this, key)} 
                 index={key}
@@ -144,7 +173,7 @@ class App extends Component {
               <Task 
                 key={key} 
                 details={task} 
-                moveToToDoTasks={this.moveToToDoTasks} 
+                moveFromCompleteToDoing={this.moveFromCompleteToDoing} 
                 status="complete"
                 deleteTaskFromComplete={this.deleteTaskFromComplete.bind(this, key)} 
                 index={key}

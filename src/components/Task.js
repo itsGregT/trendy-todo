@@ -21,16 +21,16 @@ const Task  = (props) => {
 			<div className="status-btns">
 				{status === 'todo' ? (
 					<div className="movement-arrows">
-						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveFromToDoToDoing(props.index)} />
 					</div>
 				) : status === 'doing' ? (
 					<div className="movement-arrows">
-						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
-						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveFromDoingToToDo(props.index)} />
+						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveFromDoingToComplete(props.index)} />
 					</div>
 				) : (
 					<div className="movement-arrows">
-						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveToCompleteTasks(props.index)} />
+						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveFromCompleteToDoing(props.index)} />
 					</div>
 				)}
 			</div>
