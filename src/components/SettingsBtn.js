@@ -5,7 +5,7 @@ import '../css/SettingsBtn.css';
 class SettingsBtn extends React.Component {
 	render() {
 		return (
-			<img src={settings} className="settings-btn" onClick={() => {this.props.toggleSettingsMenu}} />
+			<img src={settings} className="settings-btn" alt="settings menu icon" onClick={this.props.toggleSettingsMenu} />
 		)
 	}
 }

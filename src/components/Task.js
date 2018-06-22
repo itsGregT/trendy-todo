@@ -13,7 +13,7 @@ const Task  = (props) => {
 				<h3>{title}</h3>
 					<span className="delete-task-wrapper" onClick={status === "todo" ? props.deleteTaskFromTodo : 
 					status === "doing" ? props.deleteTaskFromDoing : 
-					props.deleteTaskFromComplete}><img className="delete-task" src={close} /></span>
+					props.deleteTaskFromComplete}><img className="delete-task" src={close} alt="delete task"/></span>
 			</div>
 			<div className="task-content">
 				<p>{desc}</p>
@@ -22,18 +22,18 @@ const Task  = (props) => {
 				{status === 'todo' ? (
 					<div className="movement-arrows">
 						<p>Move</p>
-						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveFromToDoToDoing(props.index)} />
+						<img src={rightArrow} className="right-arrow movement-arrow" alt="move task right" onClick={() => props.moveFromToDoToDoing(props.index)} />
 					</div>
 				) : status === 'doing' ? (
 					<div className="movement-arrows">
 						<p>Move</p>
-						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveFromDoingToToDo(props.index)} />
-						<img src={rightArrow} className="right-arrow movement-arrow" onClick={() => props.moveFromDoingToComplete(props.index)} />
+						<img src={leftArrow} className="left-arrow movement-arrow" alt="move task left" onClick={() => props.moveFromDoingToToDo(props.index)} />
+						<img src={rightArrow} className="right-arrow movement-arrow" alt="move task right" onClick={() => props.moveFromDoingToComplete(props.index)} />
 					</div>
 				) : (
 					<div className="movement-arrows">
 						<p>Move</p>
-						<img src={leftArrow} className="left-arrow movement-arrow" onClick={() => props.moveFromCompleteToDoing(props.index)} />
+						<img src={leftArrow} className="left-arrow movement-arrow" alt="move task left" onClick={() => props.moveFromCompleteToDoing(props.index)} />
 					</div>
 				)}
 			</div>

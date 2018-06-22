@@ -136,9 +136,7 @@ class App extends Component {
   //toggle settings menu
   //To-Do get the settings menu to toggle the 'active' class
   toggleSettingsMenu = () => {
-    const settingsMenu = document.querySelector('.settings-menu');
-
-    if(!settingsMenu.classList.contains('active')) {
+    if(this.state.settingsMenu === false) {
       this.setState({settingsMenu: true});
     } else {
       this.setState({settingsMenu: false});
@@ -149,13 +147,12 @@ class App extends Component {
     const taskList = this.state.tasksList;
     const doingTaskList = this.state.doingTasksList;
     const completeTaskList = this.state.completeTasksList;
-    const toggleSettingsMenu = this.state.toggleSettingsMenu;
     const settingsMenu = this.state.settingsMenu;
     const {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
 
     return (
       <div className="App">
-        <Header toggleSettingsMenu={this.toggleSettingsMenu} />
+        <Header toggleSettingsMenu={this.toggleSettingsMenu.bind(this)} />
         <div className="tasks-list-wrapper">
           <div className="task-list-todo tasks-list">
             <h2>To Do</h2>
