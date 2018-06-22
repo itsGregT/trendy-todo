@@ -134,13 +134,27 @@ class App extends Component {
   }
 
   //toggle settings menu
-  //To-Do get the settings menu to toggle the 'active' class
   toggleSettingsMenu = () => {
     if(this.state.settingsMenu === false) {
       this.setState({settingsMenu: true});
     } else {
       this.setState({settingsMenu: false});
     }
+  }
+
+  //close settings menu 
+  closeSettingsMenu = () => {
+    this.setState({settingsMenu: false});
+  }
+
+  //populate lists
+  populateLists = () => {
+    console.log('populate lists');
+  }
+
+  //clear all lists
+  clearLists = () => {
+    console.log('clear lists');
   }
 
   render() {
@@ -202,7 +216,12 @@ class App extends Component {
             {addTaskFormCompleteDisplay === true && (<AddTaskForm addTaskToComplete={this.addTaskToComplete} status="complete" />)}
           </div>
         </div>
-        <SettingsMenu menuDisplay={settingsMenu}/>
+        <SettingsMenu 
+          menuDisplay={settingsMenu} 
+          closeSettingsMenu={this.closeSettingsMenu} 
+          populateLists={this.populateLists}
+          clearLists={this.clearLists}
+        />
       </div>
     );
   }

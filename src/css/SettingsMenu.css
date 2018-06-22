@@ -17,13 +17,23 @@
 }
 
 .settings-menu p {
-	text-align: center;
+	padding-left: 30px;
 	font-weight: 700;
+	cursor: pointer;
+	transition: all 0.125s linear;
+}
+
+.settings-menu p:hover {
+	color: #22a6d6;
+}
+
+.settings-menu p.danger-zone:hover {
+	color: #d63d22;
 }
 
 .close-menu {
 	position: absolute;
 	right: 10px;
-	width: 7%;
+	width: 6%;
 	cursor: pointer;
 }

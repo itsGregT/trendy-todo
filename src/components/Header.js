@@ -7,7 +7,7 @@ class Header extends React.Component {
 	render() {
 		return (
 			<header>
-				<img src={logo} alt=""/>
+				<img src={logo} alt="" />
 				<SettingsBtn toggleSettingsMenu={this.props.toggleSettingsMenu}/>
 			</header>
 		)
