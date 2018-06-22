@@ -1,0 +1,29 @@
+.settings-menu {
+	background-color: #cfcfcf;
+	width: 280px;
+	padding: 10px;
+	position: absolute;
+	right: -300px;
+	top: 60px;
+	bottom: 0;
+	transition: all 0.25s ease;
+}
+
+.settings-menu h3 {
+	text-align: center;
+	padding: 0 0 10px;
+	margin: 0;
+	border-bottom: 1px solid #333;
+}
+
+.settings-menu p {
+	text-align: center;
+	font-weight: 700;
+}
+
+.close-menu {
+	position: absolute;
+	right: 10px;
+	width: 7%;
+	cursor: pointer;
+}

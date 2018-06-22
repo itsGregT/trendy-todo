@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+#root,
+.App {
 	height: 100%;
 }
 
@@ -18,6 +20,7 @@ body {
 	margin: 0;
 	color: #333;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 ul {
@@ -74,4 +77,8 @@ button {
 	right: 10px;
 	top: 10px;
 	cursor: pointer;
+}
+
+.active {
+	right: 0;
 }

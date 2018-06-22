@@ -1,6 +1,6 @@
 /***************base styles***************/
 .task {
-	background-color: #dfdfdf;
+	background-color: #cfcfcf;
 	width: 300px;
 	padding: 10px;
 	border-radius: 3px;
@@ -20,15 +20,6 @@
 	border-bottom: 1px solid #333;
 }
 
-.delete-task {
-	position: absolute;
-	right: 3px;
-	top: 3px;
-	width: 20%;
-	font-weight: 700;
-	cursor: pointer;
-}
-
 .movement-arrows {
 	position: relative;
 	height: 25px;
@@ -38,8 +29,14 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	max-width: 22px;
+	max-width: 24px;
 	cursor: pointer;
+	padding: 3px;
+}
+
+.movement-arrow:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+	border-radius: 3px;
 }
 
 .movement-arrows .right-arrow {
@@ -48,6 +45,27 @@
 
 .movement-arrows .left-arrow {
 	left: 5px;
-	transform: scaleX(-1);
-	transform-origin: center  ;
+}
+
+.status-btns p {
+	text-align: center;
+	padding: 5px 0;
+	font-size: 0.8em;
+	font-weight: 700;
+}
+
+.task .delete-task-wrapper {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	width: 20%;
+}
+
+.task .delete-task {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	width: 30%;
+	font-weight: 700;
+	cursor: pointer;
 }

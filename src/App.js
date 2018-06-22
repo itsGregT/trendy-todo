@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
+import SettingsMenu from './components/SettingsMenu';
 import Task from './components/Task';
 import './css/main.css';
 
@@ -13,7 +14,8 @@ class App extends Component {
       completeTasksList: [],
       addTaskFormToDoDisplay: false,
       addTaskFormDoingDisplay: false,
-      addTaskFormCompleteDisplay: false
+      addTaskFormCompleteDisplay: false,
+      settingsMenu: false
     }
   }
 
@@ -131,15 +133,29 @@ class App extends Component {
     })
   }
 
+  //toggle settings menu
+  //To-Do get the settings menu to toggle the 'active' class
+  toggleSettingsMenu = () => {
+    const settingsMenu = document.querySelector('.settings-menu');
+
+    if(!settingsMenu.classList.contains('active')) {
+      this.setState({settingsMenu: true});
+    } else {
+      this.setState({settingsMenu: false});
+    }
+  }
+
   render() {
     const taskList = this.state.tasksList;
     const doingTaskList = this.state.doingTasksList;
     const completeTaskList = this.state.completeTasksList;
-    const  {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
+    const toggleSettingsMenu = this.state.toggleSettingsMenu;
+    const settingsMenu = this.state.settingsMenu;
+    const {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
 
     return (
       <div className="App">
-        <Header />
+        <Header toggleSettingsMenu={this.toggleSettingsMenu} />
         <div className="tasks-list-wrapper">
           <div className="task-list-todo tasks-list">
             <h2>To Do</h2>
@@ -189,6 +205,7 @@ class App extends Component {
             {addTaskFormCompleteDisplay === true && (<AddTaskForm addTaskToComplete={this.addTaskToComplete} status="complete" />)}
           </div>
         </div>
+        <SettingsMenu menuDisplay={settingsMenu}/>
       </div>
     );
   }
