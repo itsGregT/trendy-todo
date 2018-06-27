@@ -1,9 +1,9 @@
 .settings-menu {
 	background-color: #cfcfcf;
-	width: 280px;
+	width: 350px;
 	padding: 10px;
 	position: absolute;
-	right: -300px;
+	right: -360px;
 	top: 60px;
 	bottom: 0;
 	transition: all 0.25s ease;
@@ -36,4 +36,68 @@
 	right: 10px;
 	width: 6%;
 	cursor: pointer;
+}
+
+.basic-settings {
+	z-index: 1;
+}
+
+.active-background {
+	border: 2px solid #0BBCFF;
+}
+
+.background-settings img {
+	width: 100%;
+	cursor: pointer;
+}
+
+.background-settings ul {
+	padding-left: 0;
+}
+
+.background-settings li {
+	display: inline-block;
+	width: 48%;
+	margin: 2px;
+	max-height: 80px;
+	overflow: hidden;
+	list-style-type: none;
+	border-radius: 3px;
+	transition: all 0.15s ease;
+}
+
+.background-settings li:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 3px #000;
+}
+
+.background-colors span {
+	display: block;
+	width: 100%;
+	height: 150px;
+}
+
+.background-colors .c0BBCFF {
+	background: #0BBCFF;
+}
+.background-colors .c00ffa5 {
+	background: #00ffa5;
+}
+.background-colors .c333333 {
+	background: #333333;
+}
+.background-colors .cffffff {
+	background: #ffffff;
+}
+.background-colors .cff6600 {
+	background: #ff6600;
+}
+.background-colors .cb600ff {
+	background: #b600ff;
+}
+.background-colors .cf442b9 {
+	background: #cf442b9;
+}
+.background-colors .c1eed8c {
+	background: #1eed8c;
 }
