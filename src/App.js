@@ -15,7 +15,8 @@ class App extends Component {
       addTaskFormToDoDisplay: false,
       addTaskFormDoingDisplay: false,
       addTaskFormCompleteDisplay: false,
-      settingsMenu: false
+      settingsMenu: false,
+      menuType: "default"
     }
   }
 
@@ -144,7 +145,16 @@ class App extends Component {
 
   //close settings menu 
   closeSettingsMenu = () => {
-    this.setState({settingsMenu: false});
+    this.setState({
+      settingsMenu: false,
+      menuType: 'default'
+    });
+  }
+
+  //change between menus
+  changeMenuType = () => {
+    console.log("changing menu");
+    this.setState({menuType: "background"});
   }
 
   //populate lists
@@ -154,16 +164,20 @@ class App extends Component {
 
   //clear all lists
   clearLists = () => {
-    console.log('clear lists');
+    this.setState({
+      tasksList: [],
+      doingTasksList: [],
+      completeTasksList: []
+    })
   }
 
   render() {
     const taskList = this.state.tasksList;
     const doingTaskList = this.state.doingTasksList;
     const completeTaskList = this.state.completeTasksList;
-    const settingsMenu = this.state.settingsMenu;
+    const {settingsMenu, menuType, changeMenuType} = this.state;
     const {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
-
+    console.log(menuType);
     return (
       <div className="App">
         <Header toggleSettingsMenu={this.toggleSettingsMenu.bind(this)} />
@@ -218,6 +232,8 @@ class App extends Component {
         </div>
         <SettingsMenu 
           menuDisplay={settingsMenu} 
+          menuType={menuType}
+          changeMenuType={changeMenuType}
           closeSettingsMenu={this.closeSettingsMenu} 
           populateLists={this.populateLists}
           clearLists={this.clearLists}

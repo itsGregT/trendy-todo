@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/SettingsMenu.css';
-import close from '../img/close-icon.png';
 import abstract from '../img/abstract.jpg';
 import hylancoo from '../img/hylancoo.jpg';
 import club from '../img/club.jpg';
@@ -11,29 +10,40 @@ import isleofskye from '../img/isleofskye.jpg';
 import office01 from '../img/office01.jpg';
 
 class SettingsBackgroundMenu extends React.Component {
+	updateBackground = () => {
+		const background = document.querySelector('.background-settings li');
+
+		for (let i = 0; i < background.length; i++) {
+			background[i].addEventListenter('click', function(e) {
+				console.log("clicked!")
+				document.body.style.background = e.target.data-background;
+			})
+		}
+	}
+
 	render() {
 		return(
 			<div className="background-settings">
 				<h3>Background</h3>
 				<h4>Images</h4>
 					<ul className="background-images">
-						<li class="active-background"><img src={office01} alt=""/></li>
-						<li><img src={abstract} alt=""/></li>
-						<li><img src={hylancoo} alt=""/></li>
-						<li><img src={club} alt=""/></li>
-						<li><img src={design01} alt=""/></li>
-						<li><img src={forest01} alt=""/></li>
-						<li><img src={beach} alt=""/></li>
-						<li><img src={isleofskye} alt=""/></li>
+						<li data-background="../img/office01.jpg" className="active-background"><img src={office01} alt=""/></li>
+						<li data-background="../img/abstract.jpg"><img src={abstract} alt=""/></li>
+						<li data-background="../img/hylancoo.jpg"><img src={hylancoo} alt=""/></li>
+						<li data-background="../img/club.jpg"><img src={club} alt=""/></li>
+						<li data-background="../img/design01.jpg"><img src={design01} alt=""/></li>
+						<li data-background="../img/forest01.jpg"><img src={forest01} alt=""/></li>
+						<li data-background="../img/beach.jpg"><img src={beach} alt=""/></li>
+						<li data-background="../img/isleofskye.jpg"><img src={isleofskye} alt=""/></li>
 					</ul>
 				<h4>Colors</h4>
 					<ul className="background-colors">
-						<li><span className="c0BBCFF"></span></li>
-						<li><span className="c00ffa5"></span></li>
-						<li><span className="c333333"></span></li>
-						<li><span className="cffffff"></span></li>
-						<li><span className="cff6600"></span></li>
-						<li><span className="cb600ff"></span></li>
+						<li data-background="#0BBCFF"><span className="c0BBCFF"></span></li>
+						<li data-background="#00ffa5"><span className="c00ffa5"></span></li>
+						<li data-background="#333333"><span className="c333333"></span></li>
+						<li data-background="#ffffff"><span className="cffffff"></span></li>
+						<li data-background="#ff6600"><span className="cff6600"></span></li>
+						<li data-background="#b600ff"><span className="cb600ff"></span></li>
 					</ul>
 			</div>
 		)

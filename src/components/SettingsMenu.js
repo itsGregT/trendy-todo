@@ -13,8 +13,13 @@ class SettingsMenu extends React.Component {
 		return(
 			<div className={"settings-menu " + (this.props.menuDisplay === true ? "active" : "")}>
 				<img className="close-menu" alt="close settings menu" src={close} onClick={this.props.closeSettingsMenu} />
-				<SettingsDefaultMenu />
-				<SettingsBackgroundMenu />
+				{
+				this.props.menuType === "default" ? (<SettingsBackgroundMenu />) : 
+				 (<SettingsDefaultMenu 
+				 	clearLists={this.props.clearLists} 
+				 	changeMenuType={this.props.changeMenuType} 
+				 />) 
+				}
 			</div>
 		)
 	}
