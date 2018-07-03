@@ -21,6 +21,7 @@ body {
 	color: #333;
 	height: 100%;
 	overflow-x: hidden;
+	transition: background 0.5s linear;
 }
 
 ul {

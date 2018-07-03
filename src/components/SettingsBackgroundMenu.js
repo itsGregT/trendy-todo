@@ -10,16 +10,7 @@ import isleofskye from '../img/isleofskye.jpg';
 import office01 from '../img/office01.jpg';
 
 class SettingsBackgroundMenu extends React.Component {
-	updateBackground = () => {
-		const background = document.querySelectorAll('li[data-background]');
-
-		for (let i = 0; i < background.length; i++) {
-			background[i].addEventListenter('click', function(e) {
-				console.log("clicked!");
-				
-			})
-		}
-	}
+	
 
 
 
@@ -46,6 +37,8 @@ class SettingsBackgroundMenu extends React.Component {
 						<li data-background="#ffffff"><span className="cffffff"></span></li>
 						<li data-background="#ff6600"><span className="cff6600"></span></li>
 						<li data-background="#b600ff"><span className="cb600ff"></span></li>
+						<li data-background="#ff0a0a"><span className="ff0a0a"></span></li>
+						<li data-background="#ffda09"><span className="ffda09"></span></li>
 					</ul>
 			</div>
 		)

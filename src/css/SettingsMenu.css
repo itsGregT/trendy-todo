@@ -48,7 +48,6 @@
 
 .background-settings img {
 	width: 100%;
-	cursor: pointer;
 }
 
 .background-settings ul {
@@ -69,6 +68,7 @@
 .background-settings li:hover {
 	transform: scale(1.05);
 	box-shadow: 0 0 3px #000;
+	cursor: pointer;
 }
 
 .background-colors span {
@@ -100,4 +100,12 @@
 }
 .background-colors .c1eed8c {
 	background: #1eed8c;
+}
+
+.background-colors .ff0a0a {
+	background: #ff0a0a;
+}
+
+.background-colors .ffda09 {
+	background: #ffda09;
 }
