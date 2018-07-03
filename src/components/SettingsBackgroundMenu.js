@@ -11,15 +11,17 @@ import office01 from '../img/office01.jpg';
 
 class SettingsBackgroundMenu extends React.Component {
 	updateBackground = () => {
-		const background = document.querySelector('.background-settings li');
+		const background = document.querySelectorAll('li[data-background]');
 
 		for (let i = 0; i < background.length; i++) {
 			background[i].addEventListenter('click', function(e) {
-				console.log("clicked!")
-				document.body.style.background = e.target.data-background;
+				console.log("clicked!");
+				
 			})
 		}
 	}
+
+
 
 	render() {
 		return(
