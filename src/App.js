@@ -22,10 +22,13 @@ class App extends Component {
 
   componentDidMount() {
     const background = document.querySelectorAll('li[data-background]');
+
     for (let i = 0; i < background.length; i++) {
       background[i].addEventListener('click', function(e) {
-        document.body.style.background = e.target.parentNode.getAttribute('data-background');
-        background[i].classList.remove('active-background'); 
+        background[i].classList.remove('active-background');
+        document.body.style.background = e.target.parentNode.getAttribute('data-background'); 
+
+        
         e.target.parentNode.classList.add('active-background');
       })
     }

@@ -77,6 +77,10 @@
 	height: 150px;
 }
 
+.backgrounds-wrapper {
+	overflow: hidden;
+}
+
 .background-colors .c0BBCFF {
 	background: #0BBCFF;
 }
