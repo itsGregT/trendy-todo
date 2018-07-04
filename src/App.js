@@ -5,6 +5,13 @@ import SettingsMenu from './components/SettingsMenu';
 import Task from './components/Task';
 import './css/main.css';
 
+/******************************************
+* To Do
+* - Drag and drop
+* - Populate all lists
+* - Background menu toggle & functionality
+******************************************/
+
 class App extends Component {
   constructor() {
     super();
