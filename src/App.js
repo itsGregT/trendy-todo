@@ -35,7 +35,6 @@ class App extends Component {
         background[i].classList.remove('active-background');
         document.body.style.background = e.target.parentNode.getAttribute('data-background'); 
 
-        
         e.target.parentNode.classList.add('active-background');
       })
     }
@@ -196,9 +195,9 @@ class App extends Component {
     const taskList = this.state.tasksList;
     const doingTaskList = this.state.doingTasksList;
     const completeTaskList = this.state.completeTasksList;
-    const {settingsMenu, menuType, changeMenuType} = this.state;
+    const {settingsMenu, menuType} = this.state;
     const {addTaskFormToDoDisplay, addTaskFormDoingDisplay, addTaskFormCompleteDisplay} = this.state;
-    console.log(menuType);
+
     return (
       <div className="App">
         <Header toggleSettingsMenu={this.toggleSettingsMenu.bind(this)} />

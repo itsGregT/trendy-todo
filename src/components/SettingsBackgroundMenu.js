@@ -10,10 +10,6 @@ import isleofskye from '../img/isleofskye.jpg';
 import office01 from '../img/office01.jpg';
 
 class SettingsBackgroundMenu extends React.Component {
-	
-
-
-
 	render() {
 		return(
 			<div className="background-settings">
