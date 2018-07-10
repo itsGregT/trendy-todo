@@ -254,7 +254,7 @@ class App extends Component {
         <SettingsMenu 
           menuDisplay={settingsMenu} 
           menuType={menuType}
-          changeMenuType={changeMenuType}
+          changeMenuType={this.changeMenuType}
           closeSettingsMenu={this.closeSettingsMenu} 
           populateLists={this.populateLists}
           clearLists={this.clearLists}
