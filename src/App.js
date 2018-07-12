@@ -9,7 +9,7 @@ import './css/main.css';
 * To Do
 * - Drag and drop
 * - Populate all lists
-* - Background menu toggle & functionality
+* - Background menu functionality
 ******************************************/
 
 class App extends Component {
@@ -25,10 +25,6 @@ class App extends Component {
       settingsMenu: false,
       menuType: "default"
     }
-  }
-
-  componentWillMount() {
-    
   }
 
   //add task to ToDo list
