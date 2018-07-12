@@ -28,9 +28,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const backgrounds = document.querySelectorAll(".backgrounds-wrapper li");
-
-    console.log(backgrounds);
+    
   }
 
   //add task to ToDo list

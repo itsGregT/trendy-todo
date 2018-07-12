@@ -10,6 +10,15 @@ import isleofskye from '../img/isleofskye.jpg';
 import office01 from '../img/office01.jpg';
 
 class SettingsBackgroundMenu extends React.Component {
+	componentDidMount() {
+		const backgrounds = document.querySelectorAll(".backgrounds-wrapper li");
+		for(let i = 0; i < backgrounds.length; i++) {
+			backgrounds[i].addEventListener("click", function(){
+				document.body.style.background = backgrounds[i].getAttribute('data-background');
+			})
+		}
+    	console.log(backgrounds);
+	}
 	render() {
 		return(
 			<div className="background-settings">
