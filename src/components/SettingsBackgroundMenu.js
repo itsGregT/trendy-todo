@@ -15,6 +15,8 @@ class SettingsBackgroundMenu extends React.Component {
 		for(let i = 0; i < backgrounds.length; i++) {
 			backgrounds[i].addEventListener("click", function(){
 				document.body.style.background = backgrounds[i].getAttribute('data-background');
+				document.body.style.backgroundSize = "cover";
+				console.log(backgrounds[i].getAttribute('data-background'));
 			})
 		}
     	console.log(backgrounds);
@@ -26,14 +28,14 @@ class SettingsBackgroundMenu extends React.Component {
 					<h3>Background</h3>
 					<h4>Images</h4>
 						<ul className="background-images">
-							<li data-background={office01} className="active-background"><img src={office01} alt=""/></li>
-							<li data-background={abstract}><img src={abstract} alt=""/></li>
-							<li data-background={hylancoo}><img src={hylancoo} alt=""/></li>
-							<li data-background={club}><img src={club} alt=""/></li>
-							<li data-background={design01}><img src={design01} alt=""/></li>
-							<li data-background={forest01}><img src={forest01} alt=""/></li>
-							<li data-background={beach}><img src={beach} alt=""/></li>
-							<li data-background={isleofskye}><img src={isleofskye} alt=""/></li>
+							<li data-background={`url(${office01})`}><img src={office01} alt={office01}/></li>
+							<li data-background={`url(${abstract})`}><img src={abstract} alt={abstract}/></li>
+							<li data-background={`url(${hylancoo})`}><img src={hylancoo} alt={hylancoo}/></li>
+							<li data-background={`url(${club})`}><img src={club} alt={club}/></li>
+							<li data-background={`url(${design01})`}><img src={design01} alt={design01}/></li>
+							<li data-background={`url(${forest01})`}><img src={forest01} alt={forest01}/></li>
+							<li data-background={`url(${beach})`}><img src={beach} alt={beach}/></li>
+							<li data-background={`url(${isleofskye})`}><img src={isleofskye} alt={isleofskye}/></li>
 						</ul>
 					<h4>Colors</h4>
 						<ul className="background-colors">
