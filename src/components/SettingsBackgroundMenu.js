@@ -26,14 +26,14 @@ class SettingsBackgroundMenu extends React.Component {
 					<h3>Background</h3>
 					<h4>Images</h4>
 						<ul className="background-images">
-							<li data-background="../img/office01.jpg" className="active-background"><img src={office01} alt=""/></li>
-							<li data-background="../img/abstract.jpg"><img src={abstract} alt=""/></li>
-							<li data-background="../img/hylancoo.jpg"><img src={hylancoo} alt=""/></li>
-							<li data-background="../img/club.jpg"><img src={club} alt=""/></li>
-							<li data-background="../img/design01.jpg"><img src={design01} alt=""/></li>
-							<li data-background="../img/forest01.jpg"><img src={forest01} alt=""/></li>
-							<li data-background="../img/beach.jpg"><img src={beach} alt=""/></li>
-							<li data-background="../img/isleofskye.jpg"><img src={isleofskye} alt=""/></li>
+							<li data-background={office01} className="active-background"><img src={office01} alt=""/></li>
+							<li data-background={abstract}><img src={abstract} alt=""/></li>
+							<li data-background={hylancoo}><img src={hylancoo} alt=""/></li>
+							<li data-background={club}><img src={club} alt=""/></li>
+							<li data-background={design01}><img src={design01} alt=""/></li>
+							<li data-background={forest01}><img src={forest01} alt=""/></li>
+							<li data-background={beach}><img src={beach} alt=""/></li>
+							<li data-background={isleofskye}><img src={isleofskye} alt=""/></li>
 						</ul>
 					<h4>Colors</h4>
 						<ul className="background-colors">
