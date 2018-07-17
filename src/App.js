@@ -9,7 +9,6 @@ import './css/main.css';
 * To Do
 * - Drag and drop
 * - Populate all lists
-* - Background menu functionality
 ******************************************/
 
 class App extends Component {
