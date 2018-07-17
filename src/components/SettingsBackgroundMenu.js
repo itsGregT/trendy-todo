@@ -16,6 +16,7 @@ class SettingsBackgroundMenu extends React.Component {
 			backgrounds[i].addEventListener("click", function(){
 				document.body.style.background = backgrounds[i].getAttribute('data-background');
 				document.body.style.backgroundSize = "cover";
+				document.body.style.backgroundPosition = "center";
 				console.log(backgrounds[i].getAttribute('data-background'));
 			})
 		}
